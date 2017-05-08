@@ -9,7 +9,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Asteroids_(video_game)):
 > shoot and destroy asteroids and saucers while not colliding with either or being hit > by the saucers' counter-fire. The game becomes
 > harder as the number of asteroids increases.
 
-## [Demo]() (to come)
+## [Demo](https://dmitriiser.github.io/ng-roids/)
 
 ## Quick guide
 
