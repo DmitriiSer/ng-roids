@@ -1,0 +1,24 @@
+$shipWidth: 28px; //22px;
+$shipHeight: 36px; //28px;
+
+:host {
+  display: block;
+  position: absolute;
+}
+
+.ship-wrapper {
+  display: block;
+  position: relative;
+  width: $shipWidth;
+  height: $shipHeight;
+  /*border: 1px solid white;*/
+  overflow: hidden;
+}
+
+.ship {
+  position: absolute;
+  top: -2px;
+  left: -6px;
+  width: 40px; // 32px;
+  height: 51px; // 30px;
+}

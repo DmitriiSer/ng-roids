@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25vw;
+  height: 25vh;
+  color: white;
+  border: 1px solid white;
+}
+
+:host .title {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+:host .title>* {
+  margin-top: 0;
+}

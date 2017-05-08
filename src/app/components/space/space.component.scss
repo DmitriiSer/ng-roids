@@ -1,0 +1,7 @@
+$spaceColor: darken(#343d46, 10%);
+:host {
+  display: block;
+  position: relative;
+  background: $spaceColor;
+  overflow: hidden;
+}
