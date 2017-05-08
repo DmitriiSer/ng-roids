@@ -23,6 +23,7 @@ export class ShipService {
   private velocity = 0;
 
   velocitySource: Subject<number> = new Subject();
+  accelerationSource: Subject<number> = new Subject();
   acceleratingSource: Subject<boolean> = new Subject();
   locationSourece: Subject<Location> = new Subject();
   rotationSourece: Subject<number> = new Subject();
@@ -63,6 +64,7 @@ export class ShipService {
   setAcceleration(acceleration: number): void {
     this.acceleration = Math.abs(acceleration);
     this.deceleration = -this.acceleration;
+    this.accelerationSource.next(acceleration);
   }
 
   getVelocity(): number {

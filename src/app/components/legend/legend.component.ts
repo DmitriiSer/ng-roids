@@ -10,18 +10,22 @@ import { ShipService } from "../ship/ship.service";
 export class LegendComponent implements OnInit {
 
   acceleration: string;
-  velocity: string;
+  velocity: string = '0';
 
   constructor(private shipService: ShipService) { }
 
   ngOnInit() {
-    // get ship acceleration
-    this.acceleration = this.shipService.getAcceleration().toFixed(4);
+    // subscribe to acceleration changes
+    this.shipService.accelerationSource
+      .subscribe(a => {
+        this.acceleration = a.toFixed(5);
+      });
 
+    this.velocity = (0).toFixed(5);
     // subscribe to velocity changes
     this.shipService.velocitySource
       .subscribe(v => {
-        this.velocity = v.toFixed(4);
+        this.velocity = v.toFixed(5);
       });
   }
 

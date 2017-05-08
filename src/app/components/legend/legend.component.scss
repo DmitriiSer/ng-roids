@@ -3,17 +3,21 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 25vw;
-  height: 25vh;
   color: white;
-  border: 1px solid white;
-}
-
-:host .title {
-  text-align: center;
   font-family: sans-serif;
-}
-
-:host .title>* {
-  margin-top: 0;
+  .title {
+    text-align: center;
+  }
+  .title>* {
+    margin-top: 0;
+  }
+  ul {
+    list-style-type: none;
+    line-height: 1.6;
+    margin: 0;
+    padding: 5px;
+  }
+  ul>li>span {
+    float: right;
+  }
 }
