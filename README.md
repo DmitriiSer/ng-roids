@@ -1,28 +1,20 @@
 # NgRoids
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Description
 
-## Development server
+From [Wikipedia](https://en.wikipedia.org/wiki/Asteroids_(video_game)):
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> Asteroids is an arcade space shooter released in November 1979 by Atari, Inc. and designed by Lyle Rains, Ed Logg, and Dominic Walsh.
+> The player controls a spaceship in an asteroid field which is periodically traversed by flying saucers. The object of the game is to
+> shoot and destroy asteroids and saucers while not colliding with either or being hit > by the saucers' counter-fire. The game becomes
+> harder as the number of asteroids increases.
 
-## Code scaffolding
+## [Demo]() (to come)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Quick guide
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Clone the repository
+2. Navigate to the local repository folder
+3. Run `npm install`
+4. Run `npm serve`
+5. Open browser at `http://localhost:4200/`
