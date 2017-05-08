@@ -11,6 +11,15 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Asteroids_(video_game)):
 
 ## [Demo](https://dmitriiser.github.io/ng-roids/)
 
+## Todo list
+- [ ] Shooting
+- [ ] Add asteroid component
+- [ ] Randomly generate moving asteroids
+- [ ] Create collision detection mecanism
+- [ ] Collision animation(s)
+- [ ] Stars
+- [ ] Better acceleration / deceleration physics. Rotation without acceleration drops current velocity faster?
+
 ## Quick guide
 
 1. Clone the repository
