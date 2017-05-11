@@ -12,7 +12,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Asteroids_(video_game)):
 ## [Demo](https://dmitriiser.github.io/ng-roids/)
 
 ## Todo list
-- [x] Shooting
+- [x] ~~Shooting~~
 - [ ] The legend shows what keys are available and what keys are active (pressed)
 - [ ] Add asteroid component
 - [ ] Randomly generate moving asteroids
@@ -27,7 +27,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Asteroids_(video_game)):
 
 1. [Node.js v6.xx](https://nodejs.org/en/download/)
 2. NPM (included in Node.js package)
-3. Angular CLI installed globally
+3. [Angular CLI](https://cli.angular.io/) installed globally
 
     a. You don't have it already installed:
 
