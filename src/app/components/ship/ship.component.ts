@@ -4,7 +4,7 @@ import {
   Input, HostBinding
 } from '@angular/core';
 
-import { ShipService, Location } from "./ship.service";
+import { ShipService, Location } from './ship.service';
 
 @Component({
   selector: 'ship',
@@ -29,19 +29,19 @@ export class ShipComponent implements OnInit {
   ngOnInit() {
     // set initial ship location
     if (this.x == null || this.y == null) {
-      let location = this.shipService.getLocation();
+      const location = this.shipService.getLocation();
       this.x = location.x + 'px';
       this.y = location.y + 'px';
     } else {
-      let x = this.x.endsWith('px') ?
+      const x = this.x.endsWith('px') ?
         Number(this.x.substring(0, this.x.length - 2)) : 0;
-      let y = this.y.endsWith('px') ?
+      const y = this.y.endsWith('px') ?
         Number(this.y.substring(0, this.y.length - 2)) : 0;
       this.shipService.setLocation(new Location(x, y));
     }
 
     // set initial ship angle
-    let angle = 0;
+    const angle = 0;
     this.shipService.setAngle(angle);
     this.angle = angle + 'deg';
     this.rotate = `rotate(${angle}deg)`;
@@ -59,8 +59,8 @@ export class ShipComponent implements OnInit {
 
     // subscribe to ship rotations
     this.shipService.rotationSourece
-      .subscribe(angle => {
-        this.rotate = `rotate(${angle}deg)`;
+      .subscribe(a => {
+        this.rotate = `rotate(${a}deg)`;
       });
 
     // subscribe to ship acceleration

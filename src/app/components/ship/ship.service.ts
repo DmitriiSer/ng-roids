@@ -4,16 +4,21 @@ import {
   Observable,
   Subject,
   Subscription
-} from "rxjs/Rx";
+} from 'rxjs/Rx';
 
 export class Location {
   constructor(public x: number, public y: number) { }
+}
+
+export class Size {
+  constructor(public width: number, public height: number) { }
 }
 
 @Injectable()
 export class ShipService {
 
   location: Location = { x: 0, y: 0 };
+  size: Size = { width: 28, height: 36 };
   angle = 0;
   private angleStep = 10;
 
@@ -27,21 +32,17 @@ export class ShipService {
   acceleratingSource: Subject<boolean> = new Subject();
   locationSourece: Subject<Location> = new Subject();
   rotationSourece: Subject<number> = new Subject();
+  fireSourece: Subject<{}> = new Subject();
 
   private accTimerSubscription: Subscription;
   private decTimerSubscription: Subscription;
-  private accTimerSource: Observable<number>;
-  private decTimerSource: Observable<number>;
+  private fireTimerSubscription: Subscription;
 
   private accelerating = false;
 
   private decAngle = 0;
 
-  constructor() {
-    let interval = 1;
-    this.accTimerSource = Observable.timer(0, interval);
-    this.decTimerSource = Observable.timer(0, interval);
-  }
+  constructor() { }
 
   getLocation(): Location {
     return this.location;
@@ -50,6 +51,14 @@ export class ShipService {
   setLocation(location: Location): void {
     this.location = location;
     this.locationSourece.next(location);
+  }
+
+  getSize(): Size {
+    return this.size;
+  }
+
+  getAngle(): number {
+    return this.angle;
   }
 
   setAngle(angle: number): void {
@@ -96,7 +105,7 @@ export class ShipService {
     } else {
       a = this.acceleration;
     }
-    let v = vInit + a;
+    const v = vInit + a;
     if (v < 0) {
       return 0;
     } else if (v > this.maxVelocity) {
@@ -113,17 +122,17 @@ export class ShipService {
     }
     if (this.accTimerSubscription == null) {
       this.setAccelerating(true);
-      this.accTimerSubscription = this.accTimerSource
+      this.accTimerSubscription = Observable.timer(0, 1)
         .subscribe(val => {
           this.setVelocity(this.calculateVelocity(this.velocity));
           // console.debug(`acc: a = ${this.acceleration}, v = ${this.velocity}`);
-          let angleInRad = ((90 - this.angle) * Math.PI) / 180;
-          let cos = Math.cos(angleInRad);
-          let sin = Math.sin(angleInRad);
-          let location = {
+          const angleInRad = ((90 - this.angle) * Math.PI) / 180;
+          const cos = Math.cos(angleInRad);
+          const sin = Math.sin(angleInRad);
+          const location = {
             x: this.location.x + this.velocity * cos,
             y: this.location.y - this.velocity * sin
-          }
+          };
           this.setLocation(location);
         });
     }
@@ -137,7 +146,7 @@ export class ShipService {
     if (this.decTimerSubscription == null) {
       this.setAccelerating(false);
       this.decAngle = this.angle;
-      this.decTimerSubscription = this.decTimerSource
+      this.decTimerSubscription = Observable.timer(0, 1)
         .subscribe(val => {
           this.setVelocity(this.calculateVelocity(this.velocity, true));
           // console.debug(`dec: a = ${this.deceleration}, v = ${this.velocity}`);
@@ -149,13 +158,13 @@ export class ShipService {
             this.decelerate();
           }
 
-          let angleInRad = ((90 - this.decAngle) * Math.PI) / 180;
-          let cos = Math.cos(angleInRad);
-          let sin = Math.sin(angleInRad);
-          let location = {
+          const angleInRad = ((90 - this.decAngle) * Math.PI) / 180;
+          const cos = Math.cos(angleInRad);
+          const sin = Math.sin(angleInRad);
+          const location = {
             x: this.location.x + this.velocity * cos,
             y: this.location.y - this.velocity * sin
-          }
+          };
           this.setLocation(location);
         });
     }
@@ -179,4 +188,20 @@ export class ShipService {
     this.setAngle(angle);
   }
 
+  fireStart(): void {
+    if (this.fireTimerSubscription == null) {
+      // console.debug(`fireStart`);
+      this.fireTimerSubscription = Observable.timer(0, 200)
+        .subscribe(() => {
+          this.fireSourece.next();
+        });
+    }
+  }
+  fireStop() {
+    // console.debug(`fireStop`);
+    if (this.fireTimerSubscription != null) {
+      this.fireTimerSubscription.unsubscribe();
+      this.fireTimerSubscription = null;
+    }
+  }
 }

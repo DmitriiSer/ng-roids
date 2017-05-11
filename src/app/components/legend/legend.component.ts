@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ShipService } from "../ship/ship.service";
+import { ShipService } from '../ship/ship.service';
 
 @Component({
   selector: 'legend',
@@ -10,7 +10,7 @@ import { ShipService } from "../ship/ship.service";
 export class LegendComponent implements OnInit {
 
   acceleration: string;
-  velocity: string = '0';
+  velocity = '0';
 
   constructor(private shipService: ShipService) { }
 

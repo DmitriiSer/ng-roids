@@ -2,7 +2,7 @@ import {
   Component,
   OnInit, OnChanges, SimpleChanges,
   Input, HostBinding,
-  ElementRef, ViewChild,Renderer
+  ElementRef, ViewChild, Renderer
 } from '@angular/core';
 
 @Component({
@@ -18,7 +18,7 @@ export class FlameComponent implements OnInit, OnChanges {
 
   @ViewChild('flameContainer') flameContainer: ElementRef;
 
-  constructor(private renderer:Renderer) { }
+  constructor(private renderer: Renderer) { }
 
   ngOnInit() { }
 
@@ -26,10 +26,8 @@ export class FlameComponent implements OnInit, OnChanges {
     if (changes['show'] != null) {
       if (changes['show'].currentValue) {
         this.renderer.setElementStyle(this.flameContainer.nativeElement, 'height', '16px');
-        //this.height = '16px';
       } else {
         this.renderer.setElementStyle(this.flameContainer.nativeElement, 'height', '30px');
-        //this.height = '0px';
       }
     }
   }

@@ -1,11 +1,11 @@
 import {
   Component,
   OnInit,
-  HostListener
+  HostListener,
 } from '@angular/core';
 
-import { ShipService } from "./components/ship/ship.service";
-import { Subject } from "rxjs/Rx";
+import { ShipService } from './components/ship/ship.service';
+import { Subject } from 'rxjs/Rx';
 
 /*export enum Key {
   ArrowUp = 38, ArrowDown = 40,
@@ -37,30 +37,36 @@ export class AppComponent implements OnInit {
   @HostListener('window:keydown', ['$event'])
   @HostListener('window:keyup', ['$event'])
   keydown(ev: KeyboardEvent) {
-    let e: any = ev || event;
+    const e: any = ev || event;
     // e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
-    //console.debug(`next: key = ${e.key}`);
     switch (e.key) {
       case 'ArrowUp':
-        if (e.type == 'keydown') {
+        if (e.type === 'keydown') {
           this.shipService.accelerate();
         } else {
           this.shipService.decelerate();
         }
         break;
       case 'ArrowLeft':
-        if (e.type == 'keydown') {
+        if (e.type === 'keydown') {
           this.shipService.rotateLeft();
         }
         break;
       case 'ArrowRight':
-        if (e.type == 'keydown') {
+        if (e.type === 'keydown') {
           this.shipService.rotateRight();
         }
         break;
+      case ' ':
+        if (e.type === 'keydown') {
+          this.shipService.fireStart();
+        } else {
+          this.shipService.fireStop();
+        }
+        break;
     }
-    this.keyMap[e.key] = e.type == 'keydown';
+    this.keyMap[e.key] = e.type === 'keydown';
   }
 }
