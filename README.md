@@ -13,7 +13,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Asteroids_(video_game)):
 
 ## Todo list
 - [x] ~~Shooting~~
-- [ ] The legend shows what keys are available and what keys are active (pressed)
+- [x] ~~The legend shows what keys are available and what keys are active (pressed)~~
 - [ ] Add asteroid component
 - [ ] Randomly generate moving asteroids
 - [ ] Create collision detection mecanism

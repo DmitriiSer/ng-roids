@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ShipComponent } from './components/ship/ship.component';
 import { SpaceComponent } from './components/space/space.component';
 
-import { SpaceService } from './components/space/space.service';
-import { ShipService } from './components/ship/ship.service';
 import { LegendComponent } from './components/legend/legend.component';
 import { FlameComponent } from './components/ship/flame/flame.component';
 import { MissileComponent } from './components/ship/missile/missile.component';
 import { BulletComponent } from './components/ship/bullet/bullet.component';
+
+import { AppService } from "app/app.service";
+import { SpaceService } from './components/space/space.service';
+import { ShipService } from './components/ship/ship.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { BulletComponent } from './components/ship/bullet/bullet.component';
     HttpModule
   ],
   providers: [
+    AppService,
     SpaceService,
     ShipService
   ],

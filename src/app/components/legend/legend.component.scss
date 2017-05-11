@@ -1,23 +1,72 @@
+$backgroundColor: darken(#343d46, 50%);
 :host {
   display: block;
   position: absolute;
   top: 0;
   right: 0;
+  background: $backgroundColor;
   color: white;
+  box-shadow: 0 0 6px $backgroundColor;
   font-family: sans-serif;
   .title {
     text-align: center;
-  }
-  .title>* {
-    margin-top: 0;
+    * {
+      margin-top: 0;
+    }
   }
   ul {
     list-style-type: none;
     line-height: 1.6;
     margin: 0;
     padding: 5px;
+    li {
+      text-align: right;
+    }
   }
-  ul>li>span {
-    float: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  td {
+    .key-icon {
+      $activeColor: rgba(white, 0.3);
+      $inactiveColor: rgba(white, 0.3);
+      position: relative;
+      width: 32px;
+      height: 32px;
+      margin: 4px auto;
+      border-radius: 2px;
+      border: 4px double $inactiveColor;
+      &.active {
+        background: $activeColor;
+      }
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: $inactiveColor;
+        transform: translate(-50%, -50%);
+      }
+      &.arrow-up:before {
+        content: '\25b2';
+      }
+      &.arrow-down:before {
+        content: '\25bc';
+      }
+      &.arrow-left:before {
+        content: '\25C0';
+      }
+      &.arrow-right:before {
+        content: '\25b6';
+      }
+      &.space-bar {
+        width: 142px;
+        &:before {
+          content: '\005b';
+          transform: rotate(-90deg);
+        }
+      }
+    }
   }
 }
